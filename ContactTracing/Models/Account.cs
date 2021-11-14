@@ -17,6 +17,7 @@ namespace ContactTracing.Models
         public ICollection<Dose> Doses { get; set; }
         public ICollection<Seating> Seatings { get; set; }
         public ICollection<Enrollment> Enrollments { get; set; }
+        public ICollection<History> Histories { get; set; }
 
     }
 }
