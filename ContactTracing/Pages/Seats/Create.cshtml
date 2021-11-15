@@ -1,0 +1,53 @@
+@page
+@model ContactTracing.Pages.Seats.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Seat</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Seat.XCoord" class="control-label"></label>
+                <input asp-for="Seat.XCoord" class="form-control" />
+                <span asp-validation-for="Seat.XCoord" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seat.YCoord" class="control-label"></label>
+                <input asp-for="Seat.YCoord" class="form-control" />
+                <span asp-validation-for="Seat.YCoord" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seat.Length" class="control-label"></label>
+                <input asp-for="Seat.Length" class="form-control" />
+                <span asp-validation-for="Seat.Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seat.Width" class="control-label"></label>
+                <input asp-for="Seat.Width" class="form-control" />
+                <span asp-validation-for="Seat.Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seat.ClassroomID" class="control-label"></label>
+                <select asp-for="Seat.ClassroomID" class ="form-control" asp-items="ViewBag.ClassroomID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = ContactTracing
-build_property.ProjectDir = C:\Users\User\source\repos\ContactTracingFinal\ContactTracing\
+build_property.ProjectDir = /Users/chloebaker/Documents/Fall 2021/Databases and Web Systems/ContactTracingFinal/ContactTracing/

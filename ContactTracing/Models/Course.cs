@@ -15,6 +15,7 @@ namespace ContactTracing.Models
         public Period Period { get; set; }
 
         public ICollection<Seating> Seatings { get; set; }
+        public ICollection<ClassroomAssignment> ClassroomAssignments { get; set; }
         public ICollection<Enrollment> Enrollments { get; set; }
     }
 }

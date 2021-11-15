@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Identity.Web.UI;
 using Microsoft.Identity.Web;
+using Microsoft.EntityFrameworkCore;
+using ContactTracing.Data;
 
 namespace ContactTracing
 {
@@ -43,6 +45,9 @@ namespace ContactTracing
             });
             services.AddRazorPages()
                  .AddMicrosoftIdentityUI();
+
+            services.AddDbContext<ContactTracingContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("ContactTracingContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

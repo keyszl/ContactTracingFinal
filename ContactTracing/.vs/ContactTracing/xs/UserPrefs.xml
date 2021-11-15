@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{3765AD01-77DA-4760-BBCA-199A3485BE71}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/History.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/ErrorViewModel.cs">
     <Files>
-      <File FileName="Models/Account.cs" Line="21" Column="1" />
-      <File FileName="Models/Course.cs" Line="9" Column="1" />
-      <File FileName="Models/Classroom.cs" Line="8" Column="1" />
-      <File FileName="Models/CourseClassroom.cs" Line="12" Column="48" />
+      <File FileName="Models/Account.cs" Line="9" Column="36" />
+      <File FileName="Models/Course.cs" Line="18" Column="83" />
+      <File FileName="Models/Classroom.cs" Line="13" Column="57" />
+      <File FileName="Models/CourseClassroom.cs" Line="1" Column="1" />
       <File FileName="Models/Seat.cs" Line="17" Column="57" />
       <File FileName="Models/Seating.cs" Line="14" Column="37" />
       <File FileName="Models/Enrollment.cs" Line="15" Column="1" />
@@ -13,6 +13,8 @@
       <File FileName="Models/Dose.cs" Line="1" Column="1" />
       <File FileName="Pages/Shared/_Layout.cshtml" Line="1" Column="1" />
       <File FileName="Models/History.cs" Line="1" Column="1" />
+      <File FileName="Models/ClassroomAssignment.cs" Line="15" Column="1" />
+      <File FileName="Models/ErrorViewModel.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,11 +22,9 @@
           <Node name="ContactTracing" expanded="True">
             <Node name="ContactTracing" expanded="True">
               <Node name="Models" expanded="True">
-                <Node name="History.cs" selected="True" />
+                <Node name="ErrorViewModel.cs" selected="True" />
               </Node>
-              <Node name="Pages" expanded="True">
-                <Node name="Shared" expanded="True" />
-              </Node>
+              <Node name="Pages" expanded="True" />
             </Node>
           </Node>
         </State>
