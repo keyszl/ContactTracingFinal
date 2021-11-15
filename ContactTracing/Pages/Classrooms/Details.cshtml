@@ -1,0 +1,37 @@
+@page
+@model ContactTracing.Pages.Classrooms.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Classroom</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Classroom.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classroom.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Classroom.Length)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classroom.Length)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Classroom.Width)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Classroom.Width)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Classroom.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

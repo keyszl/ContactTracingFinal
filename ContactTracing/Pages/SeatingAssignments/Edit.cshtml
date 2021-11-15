@@ -1,0 +1,50 @@
+@page
+@model ContactTracing.Pages.SeatingAssignments.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Seating</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Seating.ID" />
+            <div class="form-group">
+                <label asp-for="Seating.Date" class="control-label"></label>
+                <input asp-for="Seating.Date" class="form-control" />
+                <span asp-validation-for="Seating.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seating.CourseID" class="control-label"></label>
+                <select asp-for="Seating.CourseID" class="form-control" asp-items="ViewBag.CourseID"></select>
+                <span asp-validation-for="Seating.CourseID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seating.AccountID" class="control-label"></label>
+                <select asp-for="Seating.AccountID" class="form-control" asp-items="ViewBag.AccountID"></select>
+                <span asp-validation-for="Seating.AccountID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seating.SeatID" class="control-label"></label>
+                <select asp-for="Seating.SeatID" class="form-control" asp-items="ViewBag.SeatID"></select>
+                <span asp-validation-for="Seating.SeatID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

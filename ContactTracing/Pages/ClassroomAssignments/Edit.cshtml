@@ -1,0 +1,45 @@
+@page
+@model ContactTracing.Pages.ClassroomAssignments.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ClassroomAssignment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ClassroomAssignment.ID" />
+            <div class="form-group">
+                <label asp-for="ClassroomAssignment.Date" class="control-label"></label>
+                <input asp-for="ClassroomAssignment.Date" class="form-control" />
+                <span asp-validation-for="ClassroomAssignment.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassroomAssignment.CourseID" class="control-label"></label>
+                <select asp-for="ClassroomAssignment.CourseID" class="form-control" asp-items="ViewBag.CourseID"></select>
+                <span asp-validation-for="ClassroomAssignment.CourseID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassroomAssignment.ClassroomID" class="control-label"></label>
+                <select asp-for="ClassroomAssignment.ClassroomID" class="form-control" asp-items="ViewBag.ClassroomID"></select>
+                <span asp-validation-for="ClassroomAssignment.ClassroomID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

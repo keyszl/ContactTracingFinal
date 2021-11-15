@@ -6,6 +6,16 @@
 
   <ItemGroup>
     <None Remove="Models\" />
+    <None Remove="Pages\Accounts\" />
+    <None Remove="Pages\Classrooms\" />
+    <None Remove="Pages\Courses\" />
+    <None Remove="Pages\ClassroomAssignments\" />
+    <None Remove="Pages\Doses\" />
+    <None Remove="Pages\Enrollments\" />
+    <None Remove="Pages\Histories\" />
+    <None Remove="Pages\Seats\" />
+    <None Remove="Pages\SeatingAssignments\" />
+    <None Remove="Pages\Tests\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +30,31 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLite" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Identity.Web" Version="1.20.0" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.20.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Accounts\" />
+    <Folder Include="Pages\Classrooms\" />
+    <Folder Include="Pages\Courses\" />
+    <Folder Include="Pages\ClassroomAssignments\" />
+    <Folder Include="Pages\Doses\" />
+    <Folder Include="Pages\Enrollments\" />
+    <Folder Include="Pages\Histories\" />
+    <Folder Include="Pages\Seats\" />
+    <Folder Include="Pages\SeatingAssignments\" />
+    <Folder Include="Pages\Tests\" />
   </ItemGroup>
 </Project>

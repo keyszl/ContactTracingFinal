@@ -11,7 +11,7 @@ namespace ContactTracing.Models
         public Double Width { get; set; }
 
         public ICollection<Course> Courses { get; set; }
-        public ICollection<CourseClassroom> CourseClassrooms { get; set; }
+        public ICollection<ClassroomAssignment> ClassroomAssignments { get; set; }
         public ICollection<Seat> Seats { get; set; }
     }
 }

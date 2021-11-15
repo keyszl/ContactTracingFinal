@@ -1,0 +1,43 @@
+@page
+@model ContactTracing.Pages.Histories.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>History</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.History.Exposure)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.History.Exposure)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.History.QuarantineStart)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.History.QuarantineStart)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.History.QuarantineEnd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.History.QuarantineEnd)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.History.Account)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.History.Account.ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.History.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

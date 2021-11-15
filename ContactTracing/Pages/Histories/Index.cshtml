@@ -1,0 +1,54 @@
+@page
+@model ContactTracing.Pages.Histories.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.History[0].Exposure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.History[0].QuarantineStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.History[0].QuarantineEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.History[0].Account)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.History) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exposure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuarantineStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuarantineEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account.ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
