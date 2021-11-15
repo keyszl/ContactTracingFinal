@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +21,7 @@ namespace ContactTracing.Pages.Doses
 
         public IActionResult OnGet()
         {
-        ViewData["AccountID"] = new SelectList(_context.Account, "ID", "ID");
+        ViewData["AccountID"] = new SelectList(_context.Accounts, "ID", "ID");
         ViewData["VaccineTypeID"] = new SelectList(_context.Set<VaccineType>(), "ID", "ID");
             return Page();
         }
@@ -37,7 +37,7 @@ namespace ContactTracing.Pages.Doses
                 return Page();
             }
 
-            _context.Dose.Add(Dose);
+            _context.Doses.Add(Dose);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

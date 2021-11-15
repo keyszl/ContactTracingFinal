@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +21,7 @@ namespace ContactTracing.Pages.Courses
 
         public IActionResult OnGet()
         {
-        ViewData["MainClassroomID"] = new SelectList(_context.Classroom, "ID", "ID");
+        ViewData["MainClassroomID"] = new SelectList(_context.Classrooms, "ID", "ID");
         ViewData["PeriodID"] = new SelectList(_context.Set<Period>(), "ID", "ID");
             return Page();
         }
@@ -37,7 +37,7 @@ namespace ContactTracing.Pages.Courses
                 return Page();
             }
 
-            _context.Course.Add(Course);
+            _context.Courses.Add(Course);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

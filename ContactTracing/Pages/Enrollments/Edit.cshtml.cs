@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,7 +30,7 @@ namespace ContactTracing.Pages.Enrollments
                 return NotFound();
             }
 
-            Enrollment = await _context.Enrollment
+            Enrollment = await _context.Enrollments
                 .Include(e => e.Account)
                 .Include(e => e.Course).FirstOrDefaultAsync(m => m.ID == id);
 
@@ -38,8 +38,8 @@ namespace ContactTracing.Pages.Enrollments
             {
                 return NotFound();
             }
-           ViewData["AccountID"] = new SelectList(_context.Account, "ID", "ID");
-           ViewData["CourseID"] = new SelectList(_context.Course, "ID", "ID");
+           ViewData["AccountID"] = new SelectList(_context.Accounts, "ID", "ID");
+           ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "ID");
             return Page();
         }
 
@@ -75,7 +75,7 @@ namespace ContactTracing.Pages.Enrollments
 
         private bool EnrollmentExists(int id)
         {
-            return _context.Enrollment.Any(e => e.ID == id);
+            return _context.Enrollments.Any(e => e.ID == id);
         }
     }
 }

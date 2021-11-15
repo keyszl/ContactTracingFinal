@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +29,7 @@ namespace ContactTracing.Pages.Histories
                 return NotFound();
             }
 
-            History = await _context.History
+            History = await _context.Histories
                 .Include(h => h.Account).FirstOrDefaultAsync(m => m.ID == id);
 
             if (History == null)
@@ -46,11 +46,11 @@ namespace ContactTracing.Pages.Histories
                 return NotFound();
             }
 
-            History = await _context.History.FindAsync(id);
+            History = await _context.Histories.FindAsync(id);
 
             if (History != null)
             {
-                _context.History.Remove(History);
+                _context.Histories.Remove(History);
                 await _context.SaveChangesAsync();
             }
 

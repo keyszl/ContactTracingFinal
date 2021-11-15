@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +29,7 @@ namespace ContactTracing.Pages.Accounts
                 return NotFound();
             }
 
-            Account = await _context.Account.FirstOrDefaultAsync(m => m.ID == id);
+            Account = await _context.Accounts.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Account == null)
             {
@@ -45,11 +45,11 @@ namespace ContactTracing.Pages.Accounts
                 return NotFound();
             }
 
-            Account = await _context.Account.FindAsync(id);
+            Account = await _context.Accounts.FindAsync(id);
 
             if (Account != null)
             {
-                _context.Account.Remove(Account);
+                _context.Accounts.Remove(Account);
                 await _context.SaveChangesAsync();
             }
 

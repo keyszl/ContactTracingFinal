@@ -14,24 +14,47 @@ namespace ContactTracing.Data
         {
         }
 
-        public DbSet<ContactTracing.Models.Account> Account { get; set; }
+        public DbSet<ContactTracing.Models.Account> Accounts { get; set; }
 
-        public DbSet<ContactTracing.Models.Classroom> Classroom { get; set; }
+        public DbSet<ContactTracing.Models.Classroom> Classrooms { get; set; }
 
-        public DbSet<ContactTracing.Models.Course> Course { get; set; }
+        public DbSet<ContactTracing.Models.Course> Courses { get; set; }
 
-        public DbSet<ContactTracing.Models.ClassroomAssignment> ClassroomAssignment { get; set; }
+        public DbSet<ContactTracing.Models.ClassroomAssignment> ClassroomAssignments { get; set; }
 
-        public DbSet<ContactTracing.Models.Dose> Dose { get; set; }
+        public DbSet<ContactTracing.Models.Dose> Doses { get; set; }
 
-        public DbSet<ContactTracing.Models.Enrollment> Enrollment { get; set; }
+        public DbSet<ContactTracing.Models.Enrollment> Enrollments { get; set; }
 
-        public DbSet<ContactTracing.Models.History> History { get; set; }
+        public DbSet<ContactTracing.Models.History> Histories { get; set; }
 
-        public DbSet<ContactTracing.Models.Seating> Seating { get; set; }
+        public DbSet<ContactTracing.Models.Seating> SeatingAssignments { get; set; }
 
-        public DbSet<ContactTracing.Models.Seat> Seat { get; set; }
+        public DbSet<ContactTracing.Models.Seat> Seats { get; set; }
 
-        public DbSet<ContactTracing.Models.Test> Test { get; set; }
+        public DbSet<ContactTracing.Models.Test> Tests { get; set; }
+
+        public DbSet<ContactTracing.Models.Period> Periods { get; set; }
+
+        public DbSet<ContactTracing.Models.PeriodDay> PeriodDays { get; set; }
+
+        public DbSet<ContactTracing.Models.VaccineType> VaccineTypes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Course>().ToTable("Course");
+            modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
+            modelBuilder.Entity<Account>().ToTable("Account");
+            modelBuilder.Entity<Classroom>().ToTable("Classroom");
+            modelBuilder.Entity<ClassroomAssignment>().ToTable("ClassroomAssignment");
+            modelBuilder.Entity<Dose>().ToTable("Dose");
+            modelBuilder.Entity<History>().ToTable("History");
+            modelBuilder.Entity<Seating>().ToTable("Seating");
+            modelBuilder.Entity<Seat>().ToTable("Seat");
+            modelBuilder.Entity<Test>().ToTable("Test");
+            modelBuilder.Entity<Period>().ToTable("Period");
+            modelBuilder.Entity<PeriodDay>().ToTable("PeriodDay");
+            modelBuilder.Entity<VaccineType>().ToTable("VaccineType");
+        }
     }
 }

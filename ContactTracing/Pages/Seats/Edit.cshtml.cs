@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,14 +30,14 @@ namespace ContactTracing.Pages.Seats
                 return NotFound();
             }
 
-            Seat = await _context.Seat
+            Seat = await _context.Seats
                 .Include(s => s.Classroom).FirstOrDefaultAsync(m => m.ID == id);
 
             if (Seat == null)
             {
                 return NotFound();
             }
-           ViewData["ClassroomID"] = new SelectList(_context.Classroom, "ID", "ID");
+           ViewData["ClassroomID"] = new SelectList(_context.Classrooms, "ID", "ID");
             return Page();
         }
 
@@ -73,7 +73,7 @@ namespace ContactTracing.Pages.Seats
 
         private bool SeatExists(int id)
         {
-            return _context.Seat.Any(e => e.ID == id);
+            return _context.Seats.Any(e => e.ID == id);
         }
     }
 }

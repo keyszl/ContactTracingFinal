@@ -23,7 +23,7 @@ namespace ContactTracing.Pages.Accounts
 
         public async Task OnGetAsync()
         {
-            Account = await _context.Account.ToListAsync();
+            Account = await _context.Accounts.ToListAsync();
         }
     }
 }

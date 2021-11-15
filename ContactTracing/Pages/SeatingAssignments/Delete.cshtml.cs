@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +29,7 @@ namespace ContactTracing.Pages.SeatingAssignments
                 return NotFound();
             }
 
-            Seating = await _context.Seating
+            Seating = await _context.SeatingAssignments
                 .Include(s => s.Account)
                 .Include(s => s.Course)
                 .Include(s => s.Seat).FirstOrDefaultAsync(m => m.ID == id);
@@ -48,11 +48,11 @@ namespace ContactTracing.Pages.SeatingAssignments
                 return NotFound();
             }
 
-            Seating = await _context.Seating.FindAsync(id);
+            Seating = await _context.SeatingAssignments.FindAsync(id);
 
             if (Seating != null)
             {
-                _context.Seating.Remove(Seating);
+                _context.SeatingAssignments.Remove(Seating);
                 await _context.SaveChangesAsync();
             }
 

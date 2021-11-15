@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +29,7 @@ namespace ContactTracing.Pages.Doses
                 return NotFound();
             }
 
-            Dose = await _context.Dose
+            Dose = await _context.Doses
                 .Include(d => d.Account)
                 .Include(d => d.VaccineType).FirstOrDefaultAsync(m => m.ID == id);
 
@@ -47,11 +47,11 @@ namespace ContactTracing.Pages.Doses
                 return NotFound();
             }
 
-            Dose = await _context.Dose.FindAsync(id);
+            Dose = await _context.Doses.FindAsync(id);
 
             if (Dose != null)
             {
-                _context.Dose.Remove(Dose);
+                _context.Doses.Remove(Dose);
                 await _context.SaveChangesAsync();
             }
 

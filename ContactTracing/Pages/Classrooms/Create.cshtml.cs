@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,7 +35,7 @@ namespace ContactTracing.Pages.Classrooms
                 return Page();
             }
 
-            _context.Classroom.Add(Classroom);
+            _context.Classrooms.Add(Classroom);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

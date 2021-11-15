@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +29,7 @@ namespace ContactTracing.Pages.Tests
                 return NotFound();
             }
 
-            Test = await _context.Test
+            Test = await _context.Tests
                 .Include(t => t.Account).FirstOrDefaultAsync(m => m.ID == id);
 
             if (Test == null)
@@ -46,11 +46,11 @@ namespace ContactTracing.Pages.Tests
                 return NotFound();
             }
 
-            Test = await _context.Test.FindAsync(id);
+            Test = await _context.Tests.FindAsync(id);
 
             if (Test != null)
             {
-                _context.Test.Remove(Test);
+                _context.Tests.Remove(Test);
                 await _context.SaveChangesAsync();
             }
 

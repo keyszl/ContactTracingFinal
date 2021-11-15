@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,7 +30,7 @@ namespace ContactTracing.Pages.Classrooms
                 return NotFound();
             }
 
-            Classroom = await _context.Classroom.FirstOrDefaultAsync(m => m.ID == id);
+            Classroom = await _context.Classrooms.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Classroom == null)
             {
@@ -71,7 +71,7 @@ namespace ContactTracing.Pages.Classrooms
 
         private bool ClassroomExists(int id)
         {
-            return _context.Classroom.Any(e => e.ID == id);
+            return _context.Classrooms.Any(e => e.ID == id);
         }
     }
 }

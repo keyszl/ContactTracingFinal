@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +23,7 @@ namespace ContactTracing.Pages.Doses
 
         public async Task OnGetAsync()
         {
-            Dose = await _context.Dose
+            Dose = await _context.Doses
                 .Include(d => d.Account)
                 .Include(d => d.VaccineType).ToListAsync();
         }

@@ -1,30 +1,37 @@
 ﻿<Properties StartupConfiguration="{3765AD01-77DA-4760-BBCA-199A3485BE71}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/ErrorViewModel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/SeatingAssignments/Index.cshtml.cs">
     <Files>
+      <File FileName="Pages/Accounts/Index.cshtml.cs" Line="22" Column="31" IsPinned="True" />
       <File FileName="Models/Account.cs" Line="9" Column="36" />
       <File FileName="Models/Course.cs" Line="18" Column="83" />
       <File FileName="Models/Classroom.cs" Line="13" Column="57" />
       <File FileName="Models/CourseClassroom.cs" Line="1" Column="1" />
       <File FileName="Models/Seat.cs" Line="17" Column="57" />
-      <File FileName="Models/Seating.cs" Line="14" Column="37" />
-      <File FileName="Models/Enrollment.cs" Line="15" Column="1" />
-      <File FileName="Models/Period.cs" Line="1" Column="1" />
-      <File FileName="Models/PeriodDay.cs" Line="1" Column="1" />
-      <File FileName="Models/Dose.cs" Line="1" Column="1" />
-      <File FileName="Pages/Shared/_Layout.cshtml" Line="1" Column="1" />
       <File FileName="Models/History.cs" Line="1" Column="1" />
-      <File FileName="Models/ClassroomAssignment.cs" Line="15" Column="1" />
-      <File FileName="Models/ErrorViewModel.cs" Line="1" Column="1" />
+      <File FileName="Data/ContactTracingContext.cs" Line="39" Column="19" />
+      <File FileName="appsettings.json" Line="1" Column="1" />
+      <File FileName="Startup.cs" Line="59" Column="1" />
+      <File FileName="Program.cs" Line="18" Column="1" />
+      <File FileName="appsettings.Development.json" Line="10" Column="2" />
+      <File FileName="Pages/Accounts/Create.cshtml.cs" Line="1" Column="1" />
+      <File FileName="Pages/Accounts/Create.cshtml" Line="1" Column="1" />
+      <File FileName="Pages/SeatingAssignments/Index.cshtml.cs" Line="26" Column="57" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ContactTracing" expanded="True">
             <Node name="ContactTracing" expanded="True">
-              <Node name="Models" expanded="True">
-                <Node name="ErrorViewModel.cs" selected="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Pages" expanded="True">
+                <Node name="SeatingAssignments" expanded="True">
+                  <Node name="Index.cshtml" expanded="True">
+                    <Node name="Index.cshtml.cs" selected="True" />
+                  </Node>
+                </Node>
               </Node>
-              <Node name="Pages" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>

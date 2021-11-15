@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,14 +30,14 @@ namespace ContactTracing.Pages.Tests
                 return NotFound();
             }
 
-            Test = await _context.Test
+            Test = await _context.Tests
                 .Include(t => t.Account).FirstOrDefaultAsync(m => m.ID == id);
 
             if (Test == null)
             {
                 return NotFound();
             }
-           ViewData["AccountID"] = new SelectList(_context.Account, "ID", "ID");
+           ViewData["AccountID"] = new SelectList(_context.Accounts, "ID", "ID");
             return Page();
         }
 
@@ -73,7 +73,7 @@ namespace ContactTracing.Pages.Tests
 
         private bool TestExists(int id)
         {
-            return _context.Test.Any(e => e.ID == id);
+            return _context.Tests.Any(e => e.ID == id);
         }
     }
 }

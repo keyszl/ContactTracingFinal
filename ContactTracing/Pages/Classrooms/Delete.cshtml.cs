@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +29,7 @@ namespace ContactTracing.Pages.Classrooms
                 return NotFound();
             }
 
-            Classroom = await _context.Classroom.FirstOrDefaultAsync(m => m.ID == id);
+            Classroom = await _context.Classrooms.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Classroom == null)
             {
@@ -45,11 +45,11 @@ namespace ContactTracing.Pages.Classrooms
                 return NotFound();
             }
 
-            Classroom = await _context.Classroom.FindAsync(id);
+            Classroom = await _context.Classrooms.FindAsync(id);
 
             if (Classroom != null)
             {
-                _context.Classroom.Remove(Classroom);
+                _context.Classrooms.Remove(Classroom);
                 await _context.SaveChangesAsync();
             }
 

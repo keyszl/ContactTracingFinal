@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +29,7 @@ namespace ContactTracing.Pages.Courses
                 return NotFound();
             }
 
-            Course = await _context.Course
+            Course = await _context.Courses
                 .Include(c => c.MainClassroom)
                 .Include(c => c.Period).FirstOrDefaultAsync(m => m.ID == id);
 
@@ -47,11 +47,11 @@ namespace ContactTracing.Pages.Courses
                 return NotFound();
             }
 
-            Course = await _context.Course.FindAsync(id);
+            Course = await _context.Courses.FindAsync(id);
 
             if (Course != null)
             {
-                _context.Course.Remove(Course);
+                _context.Courses.Remove(Course);
                 await _context.SaveChangesAsync();
             }
 

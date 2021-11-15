@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,7 +28,7 @@ namespace ContactTracing.Pages.Enrollments
                 return NotFound();
             }
 
-            Enrollment = await _context.Enrollment
+            Enrollment = await _context.Enrollments
                 .Include(e => e.Account)
                 .Include(e => e.Course).FirstOrDefaultAsync(m => m.ID == id);
 

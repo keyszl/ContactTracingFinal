@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,8 +21,8 @@ namespace ContactTracing.Pages.SeatingAssignments
 
         public IActionResult OnGet()
         {
-        ViewData["AccountID"] = new SelectList(_context.Account, "ID", "ID");
-        ViewData["CourseID"] = new SelectList(_context.Course, "ID", "ID");
+        ViewData["AccountID"] = new SelectList(_context.Accounts, "ID", "ID");
+        ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "ID");
         ViewData["SeatID"] = new SelectList(_context.Set<Seat>(), "ID", "ID");
             return Page();
         }
@@ -38,7 +38,7 @@ namespace ContactTracing.Pages.SeatingAssignments
                 return Page();
             }
 
-            _context.Seating.Add(Seating);
+            _context.SeatingAssignments.Add(Seating);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

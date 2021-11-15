@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,14 +30,14 @@ namespace ContactTracing.Pages.Histories
                 return NotFound();
             }
 
-            History = await _context.History
+            History = await _context.Histories
                 .Include(h => h.Account).FirstOrDefaultAsync(m => m.ID == id);
 
             if (History == null)
             {
                 return NotFound();
             }
-           ViewData["AccountID"] = new SelectList(_context.Account, "ID", "ID");
+           ViewData["AccountID"] = new SelectList(_context.Accounts, "ID", "ID");
             return Page();
         }
 
@@ -73,7 +73,7 @@ namespace ContactTracing.Pages.Histories
 
         private bool HistoryExists(int id)
         {
-            return _context.History.Any(e => e.ID == id);
+            return _context.Histories.Any(e => e.ID == id);
         }
     }
 }

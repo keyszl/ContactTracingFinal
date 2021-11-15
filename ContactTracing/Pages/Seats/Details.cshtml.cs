@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,7 +28,7 @@ namespace ContactTracing.Pages.Seats
                 return NotFound();
             }
 
-            Seat = await _context.Seat
+            Seat = await _context.Seats
                 .Include(s => s.Classroom).FirstOrDefaultAsync(m => m.ID == id);
 
             if (Seat == null)

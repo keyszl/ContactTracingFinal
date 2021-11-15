@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +21,7 @@ namespace ContactTracing.Pages.Tests
 
         public IActionResult OnGet()
         {
-        ViewData["AccountID"] = new SelectList(_context.Account, "ID", "ID");
+        ViewData["AccountID"] = new SelectList(_context.Accounts, "ID", "ID");
             return Page();
         }
 
@@ -36,7 +36,7 @@ namespace ContactTracing.Pages.Tests
                 return Page();
             }
 
-            _context.Test.Add(Test);
+            _context.Tests.Add(Test);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

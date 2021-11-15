@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,7 +28,7 @@ namespace ContactTracing.Pages.Classrooms
                 return NotFound();
             }
 
-            Classroom = await _context.Classroom.FirstOrDefaultAsync(m => m.ID == id);
+            Classroom = await _context.Classrooms.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Classroom == null)
             {

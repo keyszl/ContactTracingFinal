@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +23,7 @@ namespace ContactTracing.Pages.Tests
 
         public async Task OnGetAsync()
         {
-            Test = await _context.Test
+            Test = await _context.Tests
                 .Include(t => t.Account).ToListAsync();
         }
     }

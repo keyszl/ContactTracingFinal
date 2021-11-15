@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,7 +30,7 @@ namespace ContactTracing.Pages.Courses
                 return NotFound();
             }
 
-            Course = await _context.Course
+            Course = await _context.Courses
                 .Include(c => c.MainClassroom)
                 .Include(c => c.Period).FirstOrDefaultAsync(m => m.ID == id);
 
@@ -38,7 +38,7 @@ namespace ContactTracing.Pages.Courses
             {
                 return NotFound();
             }
-           ViewData["MainClassroomID"] = new SelectList(_context.Classroom, "ID", "ID");
+           ViewData["MainClassroomID"] = new SelectList(_context.Classrooms, "ID", "ID");
            ViewData["PeriodID"] = new SelectList(_context.Set<Period>(), "ID", "ID");
             return Page();
         }
@@ -75,7 +75,7 @@ namespace ContactTracing.Pages.Courses
 
         private bool CourseExists(int id)
         {
-            return _context.Course.Any(e => e.ID == id);
+            return _context.Courses.Any(e => e.ID == id);
         }
     }
 }

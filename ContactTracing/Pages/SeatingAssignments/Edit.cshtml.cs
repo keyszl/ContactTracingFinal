@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,7 +30,7 @@ namespace ContactTracing.Pages.SeatingAssignments
                 return NotFound();
             }
 
-            Seating = await _context.Seating
+            Seating = await _context.SeatingAssignments
                 .Include(s => s.Account)
                 .Include(s => s.Course)
                 .Include(s => s.Seat).FirstOrDefaultAsync(m => m.ID == id);
@@ -39,8 +39,8 @@ namespace ContactTracing.Pages.SeatingAssignments
             {
                 return NotFound();
             }
-           ViewData["AccountID"] = new SelectList(_context.Account, "ID", "ID");
-           ViewData["CourseID"] = new SelectList(_context.Course, "ID", "ID");
+           ViewData["AccountID"] = new SelectList(_context.Accounts, "ID", "ID");
+           ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "ID");
            ViewData["SeatID"] = new SelectList(_context.Set<Seat>(), "ID", "ID");
             return Page();
         }
@@ -77,7 +77,7 @@ namespace ContactTracing.Pages.SeatingAssignments
 
         private bool SeatingExists(int id)
         {
-            return _context.Seating.Any(e => e.ID == id);
+            return _context.SeatingAssignments.Any(e => e.ID == id);
         }
     }
 }

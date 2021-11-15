@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,7 +30,7 @@ namespace ContactTracing.Pages.Doses
                 return NotFound();
             }
 
-            Dose = await _context.Dose
+            Dose = await _context.Doses
                 .Include(d => d.Account)
                 .Include(d => d.VaccineType).FirstOrDefaultAsync(m => m.ID == id);
 
@@ -38,7 +38,7 @@ namespace ContactTracing.Pages.Doses
             {
                 return NotFound();
             }
-           ViewData["AccountID"] = new SelectList(_context.Account, "ID", "ID");
+           ViewData["AccountID"] = new SelectList(_context.Accounts, "ID", "ID");
            ViewData["VaccineTypeID"] = new SelectList(_context.Set<VaccineType>(), "ID", "ID");
             return Page();
         }
@@ -75,7 +75,7 @@ namespace ContactTracing.Pages.Doses
 
         private bool DoseExists(int id)
         {
-            return _context.Dose.Any(e => e.ID == id);
+            return _context.Doses.Any(e => e.ID == id);
         }
     }
 }

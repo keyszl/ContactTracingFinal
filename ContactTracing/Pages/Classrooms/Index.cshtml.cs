@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +23,7 @@ namespace ContactTracing.Pages.Classrooms
 
         public async Task OnGetAsync()
         {
-            Classroom = await _context.Classroom.ToListAsync();
+            Classroom = await _context.Classrooms.ToListAsync();
         }
     }
 }

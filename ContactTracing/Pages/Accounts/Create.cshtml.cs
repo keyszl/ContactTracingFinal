@@ -35,7 +35,7 @@ namespace ContactTracing.Pages.Accounts
                 return Page();
             }
 
-            _context.Account.Add(Account);
+            _context.Accounts.Add(Account);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

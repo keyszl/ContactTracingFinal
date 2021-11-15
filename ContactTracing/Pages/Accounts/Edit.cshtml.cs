@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -30,7 +30,7 @@ namespace ContactTracing.Pages.Accounts
                 return NotFound();
             }
 
-            Account = await _context.Account.FirstOrDefaultAsync(m => m.ID == id);
+            Account = await _context.Accounts.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Account == null)
             {
@@ -71,7 +71,7 @@ namespace ContactTracing.Pages.Accounts
 
         private bool AccountExists(int id)
         {
-            return _context.Account.Any(e => e.ID == id);
+            return _context.Accounts.Any(e => e.ID == id);
         }
     }
 }

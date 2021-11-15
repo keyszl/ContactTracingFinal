@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +23,7 @@ namespace ContactTracing.Pages.Histories
 
         public async Task OnGetAsync()
         {
-            History = await _context.History
+            History = await _context.Histories
                 .Include(h => h.Account).ToListAsync();
         }
     }
