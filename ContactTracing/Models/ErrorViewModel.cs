@@ -1,6 +1,6 @@
 using System;
 
-namespace WebApp_OpenIDConnect_DotNet.Models
+namespace ContactTracing.Models
 {
     public class ErrorViewModel
     {

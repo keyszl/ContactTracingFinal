@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WebApp_OpenIDConnect_DotNet.Models;
+using ContactTracing.Models;
 
-namespace WebApp_OpenIDConnect_DotNet.Controllers
+namespace ContactTracing.Controllers
 {
     [Authorize]
     public class HomeController : Controller
