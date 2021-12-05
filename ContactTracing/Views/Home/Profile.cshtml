@@ -1,0 +1,9 @@
+﻿@using System.Security.Principal
+
+@{ ViewData["Title"] = "User Profile"; 
+    }
+<h1>@ViewData["Title"]</h1>
+
+<p>Welcome to your profile page. </p>
+
+<p><b>Email:</b> @User.Identity.Name</p>
