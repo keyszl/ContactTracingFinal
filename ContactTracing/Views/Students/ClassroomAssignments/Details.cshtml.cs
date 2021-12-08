@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ContactTracing.Data;
 using ContactTracing.Models;
 
-namespace ContactTracing.Pages.ClassroomAssignments
+namespace ContactTracing.Views.Students.ClassroomAssignments
 {
     public class DetailsModel : PageModel
     {
