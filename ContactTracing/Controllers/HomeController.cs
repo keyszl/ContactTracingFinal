@@ -41,6 +41,10 @@ namespace ContactTracing.Controllers
             return View();
         }
         
+        public IActionResult Account()
+        {
+            return Redirect("/Accounts");
+        }
 
 
         [AllowAnonymous]
