@@ -31,7 +31,7 @@ namespace ContactTracing
                 {
                     var context = services.GetRequiredService<ContactTracingContext>();
                     context.Database.EnsureCreated();
-                    // DbInitializer.Initialize(context);
+                    DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {

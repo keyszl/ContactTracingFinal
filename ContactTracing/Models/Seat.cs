@@ -10,6 +10,7 @@ namespace ContactTracing.Models
         public Double YCoord { get; set; }
         public Double Length { get; set; }
         public Double Width { get; set; }
+        public bool ProfDefault { get; set; }
         public int ClassroomID { get; set; }
 
         public Classroom Classroom { get; set; }
