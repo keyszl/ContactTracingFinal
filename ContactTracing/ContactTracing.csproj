@@ -16,6 +16,9 @@
     <None Remove="Pages\Seats\" />
     <None Remove="Pages\SeatingAssignments\" />
     <None Remove="Pages\Tests\" />
+    <None Remove="Views\Students\" />
+    <None Remove="Views\Professors\" />
+    <None Remove="Views\Students\ClassroomAssignments\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -81,5 +84,8 @@
     <Folder Include="Pages\Seats\" />
     <Folder Include="Pages\SeatingAssignments\" />
     <Folder Include="Pages\Tests\" />
+    <Folder Include="Views\Students\" />
+    <Folder Include="Views\Professors\" />
+    <Folder Include="Views\Students\ClassroomAssignments\" />
   </ItemGroup>
 </Project>
