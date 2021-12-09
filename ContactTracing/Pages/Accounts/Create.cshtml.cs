@@ -36,6 +36,7 @@ namespace ContactTracing.Pages.Accounts
             }
 
             _context.Accounts.Add(Account);
+            Account.Email = User.Identity.Name;
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

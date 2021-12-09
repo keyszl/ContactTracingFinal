@@ -25,5 +25,7 @@ namespace ContactTracing.Pages.Accounts
         {
             Account = await _context.Accounts.ToListAsync();
         }
+
+        public bool Test { get; set; }
     }
 }
