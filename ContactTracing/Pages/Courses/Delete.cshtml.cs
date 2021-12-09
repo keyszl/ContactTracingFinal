@@ -30,6 +30,7 @@ namespace ContactTracing.Pages.Courses
             }
 
             Course = await _context.Courses
+                .AsNoTracking()
                 .Include(c => c.MainClassroom)
                 .Include(c => c.Period).FirstOrDefaultAsync(m => m.ID == id);
 

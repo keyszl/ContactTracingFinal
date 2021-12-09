@@ -11,7 +11,7 @@ using ContactTracing.Models;
 
 namespace ContactTracing.Pages.Courses
 {
-    public class EditModel : PageModel
+    public class EditModel : CoursesNamePageModel
     {
         private readonly ContactTracing.Data.ContactTracingContext _context;
 
@@ -38,39 +38,38 @@ namespace ContactTracing.Pages.Courses
             {
                 return NotFound();
             }
-           ViewData["MainClassroomID"] = new SelectList(_context.Classrooms, "ID", "ID");
-           ViewData["PeriodID"] = new SelectList(_context.Set<Period>(), "ID", "ID");
+            PopulateCoursesDropDownList(_context, Course.PeriodID);
             return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (!ModelState.IsValid)
+            if (id == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Course).State = EntityState.Modified;
+            var courseToUpdate = await _context.Courses.FindAsync(id);
 
-            try
+            if (courseToUpdate == null)
+            {
+                return NotFound();
+            }
+
+            if (await TryUpdateModelAsync<Course>(
+                 courseToUpdate,
+                 "course",   // Prefix for form value.
+                   c => c.Code, c => c.Name, c => c.MainClassroomID, c => c.PeriodID))
             {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CourseExists(Course.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+            // Select DepartmentID if TryUpdateModelAsync fails.
+            PopulateCoursesDropDownList(_context, courseToUpdate.PeriodID);
+            return Page();
         }
 
         private bool CourseExists(int id)

@@ -10,7 +10,7 @@ using ContactTracing.Models;
 
 namespace ContactTracing.Pages.Courses
 {
-    public class CreateModel : PageModel
+    public class CreateModel : CoursesNamePageModel
     {
         private readonly ContactTracing.Data.ContactTracingContext _context;
 
@@ -21,8 +21,7 @@ namespace ContactTracing.Pages.Courses
 
         public IActionResult OnGet()
         {
-        ViewData["MainClassroomID"] = new SelectList(_context.Classrooms, "ID", "ID");
-        ViewData["PeriodID"] = new SelectList(_context.Set<Period>(), "ID", "ID");
+            PopulateCoursesDropDownList(_context);
             return Page();
         }
 
@@ -32,15 +31,21 @@ namespace ContactTracing.Pages.Courses
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            var emptyCourse = new Course();
+
+            if (await TryUpdateModelAsync<Course>(
+                 emptyCourse,
+                 "course",   // Prefix for form value.
+                 s => s.Code, s => s.Name, s => s.MainClassroomID, s => s.PeriodID))
             {
-                return Page();
+                _context.Courses.Add(emptyCourse);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
 
-            _context.Courses.Add(Course);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            // Select DepartmentID if TryUpdateModelAsync fails.
+            PopulateCoursesDropDownList(_context, emptyCourse.PeriodID);
+            return Page();
         }
     }
 }

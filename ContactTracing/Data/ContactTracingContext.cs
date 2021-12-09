@@ -39,6 +39,7 @@ namespace ContactTracing.Data
         public DbSet<ContactTracing.Models.PeriodDay> PeriodDays { get; set; }
 
         public DbSet<ContactTracing.Models.VaccineType> VaccineTypes { get; set; }
+        public object Departments { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
