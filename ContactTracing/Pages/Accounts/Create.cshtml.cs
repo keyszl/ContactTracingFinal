@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ContactTracing.Data;
 using ContactTracing.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactTracing.Pages.Accounts
 {
@@ -19,13 +20,26 @@ namespace ContactTracing.Pages.Accounts
             _context = context;
         }
 
-        public IActionResult OnGet()
+        //new shit
+
+        public IList<Account> Accounts1 { get; set; }
+
+        public async Task OnGetAsync()
+        {
+            Accounts1 = await _context.Accounts.ToListAsync();
+        }
+
+        // ----
+
+       /* public IActionResult OnGet()
         {
             return Page();
-        }
+        }*/
 
         [BindProperty]
         public Account Account { get; set; }
+
+       
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()

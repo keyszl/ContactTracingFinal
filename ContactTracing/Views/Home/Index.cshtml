@@ -1,9 +1,21 @@
-﻿@{ ViewData["Title"] = "Home Page"; }
+﻿
+@{ ViewData["Title"] = "Home Page"; }
 
-<div class="text-center">
+
+<div class="text-center" style="font-family: Centaur">
     <h1 class="display-4">Hendrix College Contact Tracing</h1>
-    <partial name="_LoginPartial" />
 
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Account" style="text-align: center;">Create Account</a>
+    <div class="more-text" style="font-size:x-large">
+        <partial name="_LoginPartial" />
 
+        <p>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Account" style="text-align: center;">Create Account</a>
+        </p>
+    </div>
 </div>
+
+
+
+
+
+
