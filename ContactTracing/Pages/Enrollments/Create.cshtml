@@ -29,7 +29,7 @@
             <div class="form-group">
                 <label asp-for="Enrollment.Account" class="control-label"></label>
                 <select asp-for="Enrollment.AccountID" class="form-control"
-                        asp-items="@Model.AccountNameSL">
+                        asp-items="@Model.CourseNameSL">
                     <option value="">-- Select Account --</option>
                 </select>
                 <span asp-validation-for="Enrollment.AccountID" class="text-danger" />

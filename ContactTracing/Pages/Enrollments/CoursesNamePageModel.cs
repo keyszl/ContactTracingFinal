@@ -34,6 +34,7 @@ namespace ContactTracing.Pages.Enrollments
 
             AccountNameSL = new SelectList(accountsQuery.AsNoTracking(),
                         "AccountID", "Email", selectedAccounts);
+            System.Diagnostics.Debug.WriteLine("Accounts Are Here" + AccountNameSL);
         }
     }
 }
