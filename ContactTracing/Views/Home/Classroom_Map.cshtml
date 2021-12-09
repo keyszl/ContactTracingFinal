@@ -183,5 +183,27 @@
    <canvas id="canvas" style="border: 1px solid" width="557.5" height="790"></canvas>
    <p> <input id="finalbutton" type="button" value="Submit Seat"></input> </p>
  </body>
+ <footer>
+     <script>
+         function sendMail() {
+
+             var link = "mailto:keyszl@hendrix.edu"
+                 + "?cc=keyszl@hendrix.edu"
+                 + "&subject=" + encodeURIComponent("Hendrix College COVID-19 Exposure Notification")
+                 + "&body=" + encodeURIComponent(document.getElementById('myText').innerHTML)
+                 ;
+
+             window.location.href = link;
+         }
+     </script>
+
+     <p id="myText" style="visibility:hidden">
+         This email serves as an official notice from the Hendrix College Contact Tracing team.
+
+         You have been identified as being exposed to COVID-19 by another member of the Hendrix Community.
+
+     </p>
+     <button onclick="sendMail(); return false">Send Exposure Notification</button>
+ </footer>
 </html>
 
