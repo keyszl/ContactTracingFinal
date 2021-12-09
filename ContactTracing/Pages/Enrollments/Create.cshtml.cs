@@ -10,19 +10,19 @@ using ContactTracing.Models;
 
 namespace ContactTracing.Pages.Enrollments
 {
-    public class CreateModel : PageModel
+    public class CreateModel : CoursesNamePageModel 
     {
         private readonly ContactTracing.Data.ContactTracingContext _context;
 
-        public CreateModel(ContactTracing.Data.ContactTracingContext context)
+        public CreateModel (ContactTracing.Data.ContactTracingContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["AccountID"] = new SelectList(_context.Accounts, "ID", "ID");
-        ViewData["CourseID"] = new SelectList(_context.Courses, "ID", "ID");
+            PopulateCoursesDropDownList(_context);
+            PopulateAccountsDropDownList(_context);
             return Page();
         }
 
@@ -32,15 +32,22 @@ namespace ContactTracing.Pages.Enrollments
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            var emptyEnrollment = new Enrollment();
+
+            if (await TryUpdateModelAsync<Enrollment>(
+                 emptyEnrollment,
+                 "enrollment",   // Prefix for form value.
+                 s => s.ID, s => s.Professor, s => s.AccountID, s => s.CourseID))
             {
-                return Page();
+                _context.Enrollments.Add(emptyEnrollment);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
 
-            _context.Enrollments.Add(Enrollment);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            // Select DepartmentID if TryUpdateModelAsync fails.
+            PopulateCoursesDropDownList(_context, emptyEnrollment.CourseID);
+            PopulateAccountsDropDownList(_context, emptyEnrollment.AccountID);
+            return Page();
         }
     }
 }

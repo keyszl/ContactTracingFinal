@@ -13,14 +13,14 @@ namespace ContactTracing.Pages.Courses
         public SelectList CourseNameSL { get; set; }
 
         public void PopulateCoursesDropDownList(ContactTracingContext _context,
-            object selectedCourses = null)
+            object selectedCourse = null)
         {
             var coursesQuery = from d in _context.Courses
                                    orderby d.Name // Sort by name.
                                    select d;
 
             CourseNameSL = new SelectList(coursesQuery.AsNoTracking(),
-                        "CourseID", "Name", selectedCourses);
+                        "CourseID", "Name", selectedCourse);
         }
     }
 }

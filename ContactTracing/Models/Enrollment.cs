@@ -14,7 +14,7 @@ namespace ContactTracing.Models
         [Display(Name="Course")]
         public int CourseID { get; set; }
 
-        [Display(Name="Participant")]
+        [Display(Name="Account")]
         public int AccountID { get; set; }
 
         public Course Course { get; set; }
