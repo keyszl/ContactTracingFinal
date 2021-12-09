@@ -11,8 +11,8 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Contact Tracing</a>
+            <div class="container" style="background-color: lightsalmon"> 
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b>Contact Tracing</b></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,24 +22,25 @@
                         @if (!User.Identity.IsAuthenticated)
                         {
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+                <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn"><b>Sign in</b></a>
             </li> }
                         else
                         {
+
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Lemur</a>
-            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>}
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Profile" style="text-align:right;"><b>Account</b></a>
+
+            </li>}
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Profile">Profile</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Classroom_Map"><b>Classroom Map</b></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Classroom_Map">Classroom Map</a>
-                        </li>
+
                     </ul>
+
                 </div>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy"><b>Privacy</b></a>
+
             </div>
         </nav>
 

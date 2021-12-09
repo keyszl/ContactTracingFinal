@@ -30,11 +30,6 @@ namespace ContactTracing.Controllers
             return View();
         }
 
-        
-        public IActionResult Profile()
-        {
-            return View();
-        }
 
         public IActionResult Classroom_Map()
         {
@@ -42,6 +37,11 @@ namespace ContactTracing.Controllers
         }
         
         public IActionResult Account()
+        {
+            return Redirect("/Accounts/Create");
+        }
+
+        public IActionResult Profile()
         {
             return Redirect("/Accounts");
         }
