@@ -3,5 +3,183 @@
     ViewData["Title"] = "Classroom_Map";
 }
 
-<h1>Classroom Map</h1>
+<html>
+<head>
+    <title>Mills 302 B</title>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="application/javascript">
+
+          empty_color='rgb(43, 255, 0)';
+          selected_color='rgb(0, 77, 0)';
+          submitted_color='rgb(76, 166, 255)';
+          occupied_color='rgb(25, 25, 25)';
+          var is_pressed=false;
+
+          chairs = [{
+            state:"empty",
+            x:180.83,
+            y:449.25,
+          },{
+            state:"empty",
+            x:260.41,
+            y:449.25,
+          },{
+            state:"empty",
+            x:74.625,
+            y:163.875,
+          },{
+            state:"empty",
+            x:74.625,
+            y:229.625,
+          },{
+            state:"empty",
+            x:74.625,
+            y:295.375,
+          },{
+            state:"empty",
+            x:74.625,
+            y:361.125,
+          },{
+            state:"empty",
+            x:180.83,
+            y:449.25,
+          },{
+            state:"empty",
+            x:359.125,
+            y:163.875,
+          },{
+            state:"empty",
+            x:359.125,
+            y:229.625,
+          },{
+            state:"empty",
+            x:359.125,
+            y:295.375,
+          },{
+            state:"empty",
+            x:359.125,
+            y:361.125,
+          },{
+            state:"empty",
+            x:149.21875,
+            y:80.25,
+          },{
+            state:"empty",
+            x:219.375,
+            y:80.25,
+          },{
+            state:"empty",
+            x:289.53125,
+            y:80.25,
+          }
+        ]
+
+
+
+            function draw() {
+              var canvas = document.getElementById('canvas');
+              if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+
+
+               <!--Blackboard-->
+               ctx.fillStyle = 'rgb(92, 58, 13)';
+                ctx.fillRect(0, 120, 5, 470);
+
+
+               <!--Door-->
+               ctx.fillStyle = 'rgb(207, 130, 29)';
+                ctx.fillRect(361.875, 0, 100, 10);
+
+
+
+               <!--Tables-->
+               ctx.fillStyle = 'rgb(0, 0, 0)';
+                ctx.fillRect(119.375, 120, 238.75, 108.75);
+
+               ctx.fillStyle = 'rgb(0, 0, 0)';
+                ctx.fillRect(119.375, 229.75, 238.75, 108.75);
+
+               ctx.fillStyle = 'rgb(0, 0, 0)';
+                ctx.fillRect(119.375, 339.5, 238.75, 108.75);
+
+
+
+
+
+
+               for(i=0; i<14; i++){
+                 if(chairs[i].state=='empty'){
+                   ctx.fillStyle = empty_color;
+                 }
+                 if(chairs[i].state=='selected'){
+                   ctx.fillStyle = selected_color;
+                 }
+                 if(chairs[i].state=='submitted'){
+                   ctx.fillStyle = submitted_color;
+                 }
+                 if(chairs[i].state=='occupied'){
+                   ctx.fillStyle = occupied_color;
+                 }
+                 ctx.fillRect(chairs[i].x, chairs[i].y, 43.75, 38.75);
+               }
+
+
+
+
+
+
+
+
+               canvas.addEventListener('click', function(e) {
+                       for(i=0; i<14; i++){
+                         if(e.clientX>=chairs[i].x&&e.clientX<=(chairs[i].x+43.75)&&e.clientY>=chairs[i].y&&e.clientY<=(chairs[i].y+38.75)&&chairs[i].state=='selected'){
+                           chairs[i].state='empty';
+                           ctx.fillStyle = empty_color;
+                         } if(e.clientX>=chairs[i].x&&e.clientX<=(chairs[i].x+43.75)&&e.clientY>=chairs[i].y&&e.clientY<=(chairs[i].y+38.75)&&chairs[i].state=='empty'){
+                           for(c=0; c<14; c++){
+                             if(chairs[c].state=='selected'){
+                               chairs[c].state='empty';
+                               ctx.fillStyle = empty_color;
+                             }
+                           chairs[i].state='selected';
+                           ctx.fillStyle = selected_color;
+                         }
+                       }
+                     }
+                     if (is_pressed==false){
+                      draw();
+                    }});
+
+
+                      $( document ).ready(function() {
+                        var submit_seat = function() {
+                          if(is_pressed==false){
+                             for(i=0; i<14; i++){
+                               if(chairs[i].state=='selected'){
+                                 chairs[i].state='submitted';
+                                 ctx.fillStyle = submitted_color;
+                                 is_pressed = true;
+                                 draw();
+
+                               }
+                               }
+                           }
+                         }
+                            $("#finalbutton").click(submit_seat);
+
+                      });
+
+
+              }
+            }
+    </script>
+</head>
+<body onload="draw();">
+    <canvas id="canvas" style="border: 1px solid" width="477.5" height="710"></canvas>
+    <p> <input id="finalbutton" type="button" value="Submit Seat"></input> </p>
+</body>
+</html>
 
