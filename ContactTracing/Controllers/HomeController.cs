@@ -30,6 +30,10 @@ namespace ContactTracing.Controllers
             return View();
         }
 
+        public IActionResult History()
+        {
+            return Redirect("/Histories");
+        }
 
         public IActionResult Classroom_Map()
         {
