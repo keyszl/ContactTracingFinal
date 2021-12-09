@@ -3,5 +3,207 @@
     ViewData["Title"] = "Classroom_Map";
 }
 
-<h1>Classroom Map</h1>
+<html>
+ <head>
+  <title>Mills 302 B</title>
+  <meta charset="utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="application/javascript">
+
+  empty_color='rgb(43, 255, 0)';
+  selected_color='rgb(0, 77, 0)';
+  submitted_color='rgb(76, 166, 255)';
+  occupied_color='rgb(25, 25, 25)';
+  var is_pressed=false;
+
+  chairs = [{
+    state:"occupied",
+    x:260.83,
+    y:529.25,
+  },{
+    state:"empty",
+    x:340.41,
+    y:529.25,
+  },{
+    state:"occupied",
+    x:154.625,
+    y:243.875,
+  },{
+    state:"empty",
+    x:154.625,
+    y:309.625,
+  },{
+    state:"occupied",
+    x:154.625,
+    y:375.375,
+  },{
+    state:"empty",
+    x:154.625,
+    y:441.125,
+  },{
+    state:"empty",
+    x:260.83,
+    y:529.25,
+  },{
+    state:"empty",
+    x:439.125,
+    y:243.875,
+  },{
+    state:"empty",
+    x:439.125,
+    y:309.625,
+  },{
+    state:"empty",
+    x:439.125,
+    y:375.375,
+  },{
+    state:"empty",
+    x:439.125,
+    y:441.125,
+  },{
+    state:"empty",
+    x:229.21875,
+    y:160.25,
+  },{
+    state:"empty",
+    x:299.375,
+    y:160.25,
+  },{
+    state:"empty",
+    x:369.53125,
+    y:160.25,
+  }
+]
+
+
+
+    function draw() {
+      var canvas = document.getElementById('canvas');
+      if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+
+
+       <!--Blackboard-->
+       ctx.fillStyle = 'rgb(92, 58, 13)';
+        ctx.fillRect(80, 200, 5, 470);
+
+
+       <!--Door-->
+       ctx.fillStyle = 'rgb(207, 130, 29)';
+        ctx.fillRect(441.875, 80, 100, 10);
+
+
+
+       <!--Tables-->
+       ctx.fillStyle = 'rgb(0, 0, 0)';
+        ctx.fillRect(199.375, 200, 238.75, 108.75);
+
+       ctx.fillStyle = 'rgb(0, 0, 0)';
+        ctx.fillRect(199.375, 309.75, 238.75, 108.75);
+
+       ctx.fillStyle = 'rgb(0, 0, 0)';
+        ctx.fillRect(199.375, 419.5, 238.75, 108.75);
+
+
+
+
+
+
+       for(i=0; i<14; i++){
+         if(chairs[i].state=='empty'){
+           ctx.fillStyle = empty_color;
+         }
+         if(chairs[i].state=='selected'){
+           ctx.fillStyle = selected_color;
+         }
+         if(chairs[i].state=='submitted'){
+           ctx.fillStyle = submitted_color;
+         }
+         if(chairs[i].state=='occupied'){
+           ctx.fillStyle = occupied_color;
+         }
+         ctx.fillRect(chairs[i].x, chairs[i].y, 43.75, 38.75);
+       }
+
+
+
+
+
+
+
+
+       canvas.addEventListener('click', function(e) {
+         console.log(e.clientX);
+         console.log(e.clientY);
+               for(i=0; i<14; i++){
+                 if(e.clientX+80>=chairs[i].x&&e.clientX-80<=(chairs[i].x+43.75)&&e.clientY-80>=chairs[i].y&&e.clientY+80<=(chairs[i].y+38.75)&&chairs[i].state=='selected'){
+                   chairs[i].state='empty';
+                   ctx.fillStyle = empty_color;
+                 } if(e.clientX+80>=chairs[i].x&&e.clientX-80<=(chairs[i].x+43.75)&&e.clientY-80>=chairs[i].y&&e.clientY+80<=(chairs[i].y+38.75)&&chairs[i].state=='empty'){
+                   for(c=0; c<14; c++){
+                     if(chairs[c].state=='selected'){
+                       chairs[c].state='empty';
+                       ctx.fillStyle = empty_color;
+                     }
+                   chairs[i].state='selected';
+                   ctx.fillStyle = selected_color;
+                 }
+               }
+             }
+             if (is_pressed==false){
+              draw();
+            }});
+
+
+              $( document ).ready(function() {
+                var submit_seat = function() {
+                  if(is_pressed==false){
+                     for(i=0; i<14; i++){
+                       if(chairs[i].state=='selected'){
+                         chairs[i].state='submitted';
+                         ctx.fillStyle = submitted_color;
+                         is_pressed = true;
+                         draw();
+
+                       }
+                       }
+                   }
+                 }
+                    $("#finalbutton").click(submit_seat);
+
+              });
+
+
+      }
+    }
+  </script>
+ </head>
+ <body onload="draw();">
+   <canvas id="canvas" style="border: 1px solid" width="557.5" height="700"></canvas>
+   <p> <input id="finalbutton" type="button" value="Submit Seat"></input> </p>
+ </body>
+ <footer>
+     <script> //email notification system, how to send to useridentityname? -zk
+         function sendMail() {
+
+             var link = "mailto:keyszl@hendrix.edu"
+                 + "?cc=keyszl@hendrix.edu"
+                 + "&subject=" + encodeURIComponent("Hendrix College COVID-19 Exposure Notification")
+                 + "&body=" + encodeURIComponent(document.getElementById('myText').innerHTML)
+                 ;
+
+             window.location.href = link;
+         }
+     </script>
+
+     <p id="myText" style="visibility:hidden">
+         This email serves as an official notice from the Hendrix College Contact Tracing team.
+
+         You have been identified as being exposed to COVID-19 by another member of the Hendrix Community.
+
+     </p>
+     <button onclick="sendMail(); return false">Send Exposure Notification</button>
+ </footer>
+</html>
 

@@ -1,8 +1,16 @@
 @page
 @model ContactTracing.Pages.Accounts.CreateModel
 
-@{
-    ViewData["Title"] = "Create";
+@{ ViewData["Title"] = "Create"; }
+
+@foreach (var item in Model.Accounts1)
+{
+    if (item.Email == User.Identity.Name) //if user's microsoft email is in our database already, redirect to index -zk
+    {
+        Response.Redirect("./Index");
+          
+    }
+   
 }
 
 <h1>Create</h1>
