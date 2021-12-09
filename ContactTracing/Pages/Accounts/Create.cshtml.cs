@@ -31,7 +31,8 @@ namespace ContactTracing.Pages.Accounts
 
         // ----
 
-       /* public IActionResult OnGet()
+       /* public IActionResult OnGet()    // so apparently you can't have two OnGets because then it bugs out
+        *                                   //bc it's trying to redirect to two different places at once -zk
         {
             return Page();
         }*/
@@ -50,10 +51,10 @@ namespace ContactTracing.Pages.Accounts
             }
 
             _context.Accounts.Add(Account);
-            Account.Email = User.Identity.Name;
-            await _context.SaveChangesAsync();
+            Account.Email = User.Identity.Name;     //This changes email to be their microsoft email by default
+            await _context.SaveChangesAsync();      //it actually updates the value here, in the cshtml it's just for show -zk
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index"); 
         }
     }
 }
