@@ -137,10 +137,10 @@
          console.log(e.clientX);
          console.log(e.clientY);
                for(i=0; i<14; i++){
-                 if(e.clientX>=chairs[i].x&&e.clientX<=(chairs[i].x+43.75)&&e.clientY>=chairs[i].y&&e.clientY<=(chairs[i].y+38.75)&&chairs[i].state=='selected'){
+                 if(e.clientX+80>=chairs[i].x&&e.clientX-80<=(chairs[i].x+43.75)&&e.clientY-80>=chairs[i].y&&e.clientY+80<=(chairs[i].y+38.75)&&chairs[i].state=='selected'){
                    chairs[i].state='empty';
                    ctx.fillStyle = empty_color;
-                 } if(e.clientX>=chairs[i].x&&e.clientX<=(chairs[i].x+43.75)&&e.clientY>=chairs[i].y&&e.clientY<=(chairs[i].y+38.75)&&chairs[i].state=='empty'){
+                 } if(e.clientX+80>=chairs[i].x&&e.clientX-80<=(chairs[i].x+43.75)&&e.clientY-80>=chairs[i].y&&e.clientY+80<=(chairs[i].y+38.75)&&chairs[i].state=='empty'){
                    for(c=0; c<14; c++){
                      if(chairs[c].state=='selected'){
                        chairs[c].state='empty';
@@ -180,7 +180,7 @@
   </script>
  </head>
  <body onload="draw();">
-   <canvas id="canvas" style="border: 1px solid" width="557.5" height="790"></canvas>
+   <canvas id="canvas" style="border: 1px solid" width="557.5" height="00"></canvas>
    <p> <input id="finalbutton" type="button" value="Submit Seat"></input> </p>
  </body>
  <footer>
